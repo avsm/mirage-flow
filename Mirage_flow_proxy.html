@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Mirage_flow_copy.html">
+<link rel="next" href="Mirage_flow_s.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Index of module types" rel=Appendix href="index_module_types.html">
+<link title="Fflow" rel="Chapter" href="Fflow.html">
+<link title="Mirage_flow_stats" rel="Chapter" href="Mirage_flow_stats.html">
+<link title="Mirage_flow_copy" rel="Chapter" href="Mirage_flow_copy.html">
+<link title="Mirage_flow_proxy" rel="Chapter" href="Mirage_flow_proxy.html">
+<link title="Mirage_flow_s" rel="Chapter" href="Mirage_flow_s.html">
+<link title="Mirage_flow" rel="Chapter" href="Mirage_flow.html">
+<link title="Lwt_io_flow" rel="Chapter" href="Lwt_io_flow.html"><title>Mirage_flow_proxy</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Mirage_flow_copy.html" title="Mirage_flow_copy">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Mirage_flow_s.html" title="Mirage_flow_s">Next</a>
+</div>
+<h1>Module <a href="type_Mirage_flow_proxy.html">Mirage_flow_proxy</a></h1>
+
+<pre><span class="keyword">module</span> Mirage_flow_proxy: <code class="code">sig</code> <a href="Mirage_flow_proxy.html">..</a> <code class="code">end</code></pre><hr width="100%">
+
+<pre><span id="VALproxy"><span class="keyword">val</span> proxy</span> : <code class="type">(module V1.CLOCK) -><br>       (module Mirage_flow_s.SHUTDOWNABLE with type flow = 'a) -><br>       'a -><br>       (module Mirage_flow_s.SHUTDOWNABLE with type flow = 'b) -><br>       'b -><br>       unit -><br>       [> `Error of [> `Msg of string ]<br>        | `Ok of <a href="Mirage_flow_stats.html#TYPEt">Mirage_flow_stats.t</a> * <a href="Mirage_flow_stats.html#TYPEt">Mirage_flow_stats.t</a> ]<br>       Lwt.t</code></pre></body></html>

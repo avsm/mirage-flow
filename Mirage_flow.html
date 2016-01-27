@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Mirage_flow_s.html">
+<link rel="next" href="Lwt_io_flow.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Index of module types" rel=Appendix href="index_module_types.html">
+<link title="Fflow" rel="Chapter" href="Fflow.html">
+<link title="Mirage_flow_stats" rel="Chapter" href="Mirage_flow_stats.html">
+<link title="Mirage_flow_copy" rel="Chapter" href="Mirage_flow_copy.html">
+<link title="Mirage_flow_proxy" rel="Chapter" href="Mirage_flow_proxy.html">
+<link title="Mirage_flow_s" rel="Chapter" href="Mirage_flow_s.html">
+<link title="Mirage_flow" rel="Chapter" href="Mirage_flow.html">
+<link title="Lwt_io_flow" rel="Chapter" href="Lwt_io_flow.html"><title>Mirage_flow</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Mirage_flow_s.html" title="Mirage_flow_s">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Lwt_io_flow.html" title="Lwt_io_flow">Next</a>
+</div>
+<h1>Module <a href="type_Mirage_flow.html">Mirage_flow</a></h1>
+
+<pre><span class="keyword">module</span> Mirage_flow: <code class="code">sig</code> <a href="Mirage_flow.html">..</a> <code class="code">end</code></pre><div class="info module top">
+Utility functions over flows<br>
+</div>
+<hr width="100%">
+
+<pre><span class="keyword">module</span> <a href="Mirage_flow.Fun.html">Fun</a>: <code class="type">module type of <a href="Fflow.html">Fflow</a></code></pre><div class="info">
+Flows from functions
+</div>
+
+<pre><span class="keyword">module</span> <a href="Mirage_flow.CopyStats.html">CopyStats</a>: <code class="code">sig</code> <a href="Mirage_flow.CopyStats.html">..</a> <code class="code">end</code></pre>
+<pre><span id="VALcopy"><span class="keyword">val</span> copy</span> : <code class="type">(module V1.CLOCK) -><br>       (module V1_LWT.FLOW with type flow = 'a) -><br>       'a -><br>       (module V1_LWT.FLOW with type flow = 'b) -><br>       'b -><br>       unit -><br>       [ `Error of [ `Msg of string ] | `Ok of <a href="Mirage_flow.CopyStats.html#TYPEt">CopyStats.t</a> ] Lwt.t</code></pre><div class="info ">
+<code class="code">copy (module Clock) (module Source) source (module Destination)
+    destination</code> copies data from <code class="code">source</code> to <code class="code">destination</code> using the
+    clock to compute a transfer rate. On successful completion, some statistics
+    are returned. On failure we return a printable error.<br>
+</div>
+
+<pre><span id="VALproxy"><span class="keyword">val</span> proxy</span> : <code class="type">(module V1.CLOCK) -><br>       (module Mirage_flow_s.SHUTDOWNABLE with type flow = 'a) -><br>       'a -><br>       (module Mirage_flow_s.SHUTDOWNABLE with type flow = 'b) -><br>       'b -><br>       unit -><br>       [ `Error of [ `Msg of string ]<br>       | `Ok of <a href="Mirage_flow.CopyStats.html#TYPEt">CopyStats.t</a> * <a href="Mirage_flow.CopyStats.html#TYPEt">CopyStats.t</a> ] Lwt.t</code></pre><div class="info ">
+<code class="code">proxy (module Clock) (module A) a (module B) b ()</code> proxies data between
+    <code class="code">a</code> and <code class="code">b</code> until both sides close. If either direction encounters an error
+    then so will <code class="code">proxy</code>. If both directions succeed, then return I/O statistics.<br>
+</div>
+</body></html>

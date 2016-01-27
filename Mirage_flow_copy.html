@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="previous" href="Mirage_flow_stats.html">
+<link rel="next" href="Mirage_flow_proxy.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Index of module types" rel=Appendix href="index_module_types.html">
+<link title="Fflow" rel="Chapter" href="Fflow.html">
+<link title="Mirage_flow_stats" rel="Chapter" href="Mirage_flow_stats.html">
+<link title="Mirage_flow_copy" rel="Chapter" href="Mirage_flow_copy.html">
+<link title="Mirage_flow_proxy" rel="Chapter" href="Mirage_flow_proxy.html">
+<link title="Mirage_flow_s" rel="Chapter" href="Mirage_flow_s.html">
+<link title="Mirage_flow" rel="Chapter" href="Mirage_flow.html">
+<link title="Lwt_io_flow" rel="Chapter" href="Lwt_io_flow.html"><title>Mirage_flow_copy</title>
+</head>
+<body>
+<div class="navbar"><a class="pre" href="Mirage_flow_stats.html" title="Mirage_flow_stats">Previous</a>
+&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Mirage_flow_proxy.html" title="Mirage_flow_proxy">Next</a>
+</div>
+<h1>Module <a href="type_Mirage_flow_copy.html">Mirage_flow_copy</a></h1>
+
+<pre><span class="keyword">module</span> Mirage_flow_copy: <code class="code">sig</code> <a href="Mirage_flow_copy.html">..</a> <code class="code">end</code></pre><hr width="100%">
+
+<pre><code><span id="TYPEt"><span class="keyword">type</span> <code class="type"></code>t</span> = {</code></pre><table class="typetable">
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt._read_bytes">_read_bytes</span>&nbsp;: <code class="type">int64 Pervasives.ref</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt._read_ops">_read_ops</span>&nbsp;: <code class="type">int64 Pervasives.ref</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt._write_bytes">_write_bytes</span>&nbsp;: <code class="type">int64 Pervasives.ref</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt._write_ops">_write_ops</span>&nbsp;: <code class="type">int64 Pervasives.ref</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt._finish">_finish</span>&nbsp;: <code class="type">float option Pervasives.ref</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.start">start</span>&nbsp;: <code class="type">float</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.time">time</span>&nbsp;: <code class="type">unit -> float</code>;</code></td>
+
+</tr>
+<tr>
+<td align="left" valign="top" >
+<code>&nbsp;&nbsp;</code></td>
+<td align="left" valign="top" >
+<code><span id="TYPEELTt.t">t</span>&nbsp;: <code class="type">[ `Error of [ `Msg of string ] | `Ok of unit ] Lwt.t</code>;</code></td>
+
+</tr></table>
+}
+
+
+
+<pre><span id="VALstats"><span class="keyword">val</span> stats</span> : <code class="type"><a href="Mirage_flow_copy.html#TYPEt">t</a> -> <a href="Mirage_flow_stats.html#TYPEt">Mirage_flow_stats.t</a></code></pre>
+<pre><span id="VALstart"><span class="keyword">val</span> start</span> : <code class="type">(module V1.CLOCK) -><br>       (module V1_LWT.FLOW with type flow = 'a) -><br>       'a -><br>       (module V1_LWT.FLOW with type flow = 'b) -> 'b -> unit -> <a href="Mirage_flow_copy.html#TYPEt">t</a></code></pre>
+<pre><span id="VALwait"><span class="keyword">val</span> wait</span> : <code class="type"><a href="Mirage_flow_copy.html#TYPEt">t</a> -> [ `Error of [ `Msg of string ] | `Ok of unit ] Lwt.t</code></pre>
+<pre><span id="VALcopy"><span class="keyword">val</span> copy</span> : <code class="type">(module V1.CLOCK) -><br>       (module V1_LWT.FLOW with type flow = 'a) -><br>       'a -><br>       (module V1_LWT.FLOW with type flow = 'b) -><br>       'b -><br>       unit -> [> `Error of [> `Msg of string ] | `Ok of <a href="Mirage_flow_stats.html#TYPEt">Mirage_flow_stats.t</a> ] Lwt.t</code></pre></body></html>

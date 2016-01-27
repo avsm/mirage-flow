@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link rel="next" href="Mirage_flow_stats.html">
+<link rel="Up" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Index of module types" rel=Appendix href="index_module_types.html">
+<link title="Fflow" rel="Chapter" href="Fflow.html">
+<link title="Mirage_flow_stats" rel="Chapter" href="Mirage_flow_stats.html">
+<link title="Mirage_flow_copy" rel="Chapter" href="Mirage_flow_copy.html">
+<link title="Mirage_flow_proxy" rel="Chapter" href="Mirage_flow_proxy.html">
+<link title="Mirage_flow_s" rel="Chapter" href="Mirage_flow_s.html">
+<link title="Mirage_flow" rel="Chapter" href="Mirage_flow.html">
+<link title="Lwt_io_flow" rel="Chapter" href="Lwt_io_flow.html"><link title="String flows" rel="Section" href="#1_Stringflows">
+<link title="Cstruct buffers flows" rel="Section" href="#1_Cstructbuffersflows">
+<title>Fflow</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;<a class="post" href="Mirage_flow_stats.html" title="Mirage_flow_stats">Next</a>
+</div>
+<h1>Module <a href="type_Fflow.html">Fflow</a></h1>
+
+<pre><span class="keyword">module</span> Fflow: <code class="code">sig</code> <a href="Fflow.html">..</a> <code class="code">end</code></pre><div class="info module top">
+Function-based flows.<br>
+</div>
+<hr width="100%">
+
+<pre><span id="TYPEerror"><span class="keyword">type</span> <code class="type"></code>error</span> </pre>
+<div class="info ">
+Type for errors.<br>
+</div>
+
+
+<pre><span id="VALpp_error"><span class="keyword">val</span> pp_error</span> : <code class="type">Format.formatter -> <a href="Fflow.html#TYPEerror">error</a> -> unit</code></pre><div class="info ">
+Pretty-print errors.<br>
+</div>
+
+<pre><span class="keyword">include</span> V1_LWT.FLOW</pre>
+
+<pre><span id="TYPErefill"><span class="keyword">type</span> <code class="type"></code>refill</span> = <code class="type">Cstruct.t -> int -> int -> int Lwt.t</code> </pre>
+<div class="info ">
+The type for refill functions.<br>
+</div>
+
+
+<pre><span id="VALmake"><span class="keyword">val</span> make</span> : <code class="type">?close:(unit -> unit Lwt.t) -><br>       ?input:<a href="Fflow.html#TYPErefill">refill</a> -> ?output:<a href="Fflow.html#TYPErefill">refill</a> -> unit -> flow</code></pre><div class="info ">
+<code class="code">make ~close ~input ~output ()</code> is a flow using <code class="code">input</code> to refill
+    its internal input buffer when needed and <code class="code">output</code> to refill its
+    external output buffer. It is using <code class="code">close</code> to eventually clean-up
+    other resources on close.<br>
+</div>
+<br>
+<h1 id="1_Stringflows">String flows</h1><br>
+
+<pre><span id="VALinput_string"><span class="keyword">val</span> input_string</span> : <code class="type">string -> <a href="Fflow.html#TYPErefill">refill</a></code></pre><div class="info ">
+<code class="code">input_string buf</code> is the refill function reading its inputs from
+    the string <code class="code">buf</code>.<br>
+</div>
+
+<pre><span id="VALoutput_string"><span class="keyword">val</span> output_string</span> : <code class="type">string -> <a href="Fflow.html#TYPErefill">refill</a></code></pre><div class="info ">
+<code class="code">output_string buf</code> is the refill function writing its outputs in
+    the buffer <code class="code">buf</code>.<br>
+</div>
+
+<pre><span id="VALstring"><span class="keyword">val</span> string</span> : <code class="type">?input:string -> ?output:string -> unit -> flow</code></pre><div class="info ">
+The flow built using <a href="Fflow.html#VALinput_string"><code class="code">Fflow.input_string</code></a> and <a href="Fflow.html#VALoutput_string"><code class="code">Fflow.output_string</code></a>.<br>
+</div>
+
+<pre><span id="VALinput_strings"><span class="keyword">val</span> input_strings</span> : <code class="type">string list -> <a href="Fflow.html#TYPErefill">refill</a></code></pre><div class="info ">
+<code class="code">input_strings bufs</code> is the refill function reading its inputs from
+    the list of buffers <code class="code">bufs</code>. Empty strings are ignored.<br>
+</div>
+
+<pre><span id="VALoutput_strings"><span class="keyword">val</span> output_strings</span> : <code class="type">string list -> <a href="Fflow.html#TYPErefill">refill</a></code></pre><div class="info ">
+<code class="code">output_strings buf</code> is the refill function writing its outputs in
+    the list of buffers <code class="code">buf</code>. Empty strings are ignored.<br>
+</div>
+
+<pre><span id="VALstrings"><span class="keyword">val</span> strings</span> : <code class="type">?input:string list -> ?output:string list -> unit -> flow</code></pre><div class="info ">
+The flow built using <a href="Fflow.html#VALinput_strings"><code class="code">Fflow.input_strings</code></a> and <a href="Fflow.html#VALoutput_strings"><code class="code">Fflow.output_strings</code></a>.<br>
+</div>
+<br>
+<h1 id="1_Cstructbuffersflows">Cstruct buffers flows</h1><br>
+
+<pre><span id="VALinput_cstruct"><span class="keyword">val</span> input_cstruct</span> : <code class="type">Cstruct.t -> <a href="Fflow.html#TYPErefill">refill</a></code></pre><div class="info ">
+Same as <a href="Fflow.html#VALinput_string"><code class="code">Fflow.input_string</code></a> but for <code class="code">Cstruct.t</code> buffers.<br>
+</div>
+
+<pre><span id="VALoutput_cstruct"><span class="keyword">val</span> output_cstruct</span> : <code class="type">Cstruct.t -> <a href="Fflow.html#TYPErefill">refill</a></code></pre><div class="info ">
+Same as <a href="Fflow.html#VALoutput_string"><code class="code">Fflow.output_string</code></a> buf for <code class="code">Cstruct.t</code> buffers.<br>
+</div>
+
+<pre><span id="VALcstruct"><span class="keyword">val</span> cstruct</span> : <code class="type">?input:Cstruct.t -> ?output:Cstruct.t -> unit -> flow</code></pre><div class="info ">
+Same as <a href="Fflow.html#VALstring"><code class="code">Fflow.string</code></a> but for <code class="code">Cstruct.t</code> buffers.<br>
+</div>
+
+<pre><span id="VALinput_cstructs"><span class="keyword">val</span> input_cstructs</span> : <code class="type">Cstruct.t list -> <a href="Fflow.html#TYPErefill">refill</a></code></pre><div class="info ">
+Same as <a href="Fflow.html#VALinput_strings"><code class="code">Fflow.input_strings</code></a> but for <code class="code">Cstruct.t</code> buffers.<br>
+</div>
+
+<pre><span id="VALoutput_cstructs"><span class="keyword">val</span> output_cstructs</span> : <code class="type">Cstruct.t list -> <a href="Fflow.html#TYPErefill">refill</a></code></pre><div class="info ">
+Same as <a href="Fflow.html#VALoutput_strings"><code class="code">Fflow.output_strings</code></a> but for <code class="code">Cstruct.t</code> buffers.<br>
+</div>
+
+<pre><span id="VALcstructs"><span class="keyword">val</span> cstructs</span> : <code class="type">?input:Cstruct.t list -> ?output:Cstruct.t list -> unit -> flow</code></pre><div class="info ">
+Same as <a href="Fflow.html#VALstrings"><code class="code">Fflow.strings</code></a> but for <code class="code">Cstruct.t</code> buffers.<br>
+</div>
+</body></html>

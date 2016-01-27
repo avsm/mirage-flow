@@ -1,0 +1,176 @@
+<html>
+<head>
+<link rel="stylesheet" href="style.css" type="text/css">
+<meta content="text/html; charset=iso-8859-1" http-equiv="Content-Type">
+<link rel="Start" href="index.html">
+<link title="Index of types" rel=Appendix href="index_types.html">
+<link title="Index of values" rel=Appendix href="index_values.html">
+<link title="Index of modules" rel=Appendix href="index_modules.html">
+<link title="Index of module types" rel=Appendix href="index_module_types.html">
+<link title="Fflow" rel="Chapter" href="Fflow.html">
+<link title="Mirage_flow_stats" rel="Chapter" href="Mirage_flow_stats.html">
+<link title="Mirage_flow_copy" rel="Chapter" href="Mirage_flow_copy.html">
+<link title="Mirage_flow_proxy" rel="Chapter" href="Mirage_flow_proxy.html">
+<link title="Mirage_flow_s" rel="Chapter" href="Mirage_flow_s.html">
+<link title="Mirage_flow" rel="Chapter" href="Mirage_flow.html">
+<link title="Lwt_io_flow" rel="Chapter" href="Lwt_io_flow.html"><title>Index of values</title>
+</head>
+<body>
+<div class="navbar">&nbsp;<a class="up" href="index.html" title="Index">Up</a>
+&nbsp;</div>
+<h1>Index of values</h1>
+<table>
+<tr><td align="left"><br></td></tr>
+<tr><td><a href="Mirage_flow_stats.html#VAL( ** )">( ** )</a> [<a href="Mirage_flow_stats.html">Mirage_flow_stats</a>]</td>
+<td></td></tr>
+<tr><td align="left"><br>A</td></tr>
+<tr><td><a href="Mirage_flow_stats.html#VALadd_suffix">add_suffix</a> [<a href="Mirage_flow_stats.html">Mirage_flow_stats</a>]</td>
+<td></td></tr>
+<tr><td align="left"><br>C</td></tr>
+<tr><td><a href="Mirage_flow.html#VALcopy">copy</a> [<a href="Mirage_flow.html">Mirage_flow</a>]</td>
+<td><div class="info">
+<code class="code">copy (module Clock) (module Source) source (module Destination)
+    destination</code> copies data from <code class="code">source</code> to <code class="code">destination</code> using the
+    clock to compute a transfer rate.
+</div>
+</td></tr>
+<tr><td><a href="Mirage_flow_copy.html#VALcopy">copy</a> [<a href="Mirage_flow_copy.html">Mirage_flow_copy</a>]</td>
+<td></td></tr>
+<tr><td><a href="Fflow.html#VALcstruct">cstruct</a> [<a href="Fflow.html">Fflow</a>]</td>
+<td><div class="info">
+Same as <a href="Fflow.html#VALstring"><code class="code">Fflow.string</code></a> but for <code class="code">Cstruct.t</code> buffers.
+</div>
+</td></tr>
+<tr><td><a href="Fflow.html#VALcstructs">cstructs</a> [<a href="Fflow.html">Fflow</a>]</td>
+<td><div class="info">
+Same as <a href="Fflow.html#VALstrings"><code class="code">Fflow.strings</code></a> but for <code class="code">Cstruct.t</code> buffers.
+</div>
+</td></tr>
+<tr><td align="left"><br>G</td></tr>
+<tr><td><a href="Mirage_flow_stats.html#VALgib">gib</a> [<a href="Mirage_flow_stats.html">Mirage_flow_stats</a>]</td>
+<td></td></tr>
+<tr><td align="left"><br>I</td></tr>
+<tr><td><a href="Lwt_io_flow.Make.html#VALic">ic</a> [<a href="Lwt_io_flow.Make.html">Lwt_io_flow.Make</a>]</td>
+<td><div class="info">
+Build an <code class="code">Lwt_io</code> input channel from a mirage flow.
+</div>
+</td></tr>
+<tr><td><a href="Fflow.html#VALinput_cstruct">input_cstruct</a> [<a href="Fflow.html">Fflow</a>]</td>
+<td><div class="info">
+Same as <a href="Fflow.html#VALinput_string"><code class="code">Fflow.input_string</code></a> but for <code class="code">Cstruct.t</code> buffers.
+</div>
+</td></tr>
+<tr><td><a href="Fflow.html#VALinput_cstructs">input_cstructs</a> [<a href="Fflow.html">Fflow</a>]</td>
+<td><div class="info">
+Same as <a href="Fflow.html#VALinput_strings"><code class="code">Fflow.input_strings</code></a> but for <code class="code">Cstruct.t</code> buffers.
+</div>
+</td></tr>
+<tr><td><a href="Fflow.html#VALinput_string">input_string</a> [<a href="Fflow.html">Fflow</a>]</td>
+<td><div class="info">
+<code class="code">input_string buf</code> is the refill function reading its inputs from
+    the string <code class="code">buf</code>.
+</div>
+</td></tr>
+<tr><td><a href="Fflow.html#VALinput_strings">input_strings</a> [<a href="Fflow.html">Fflow</a>]</td>
+<td><div class="info">
+<code class="code">input_strings bufs</code> is the refill function reading its inputs from
+    the list of buffers <code class="code">bufs</code>.
+</div>
+</td></tr>
+<tr><td align="left"><br>K</td></tr>
+<tr><td><a href="Mirage_flow_stats.html#VALkib">kib</a> [<a href="Mirage_flow_stats.html">Mirage_flow_stats</a>]</td>
+<td></td></tr>
+<tr><td align="left"><br>M</td></tr>
+<tr><td><a href="Fflow.html#VALmake">make</a> [<a href="Fflow.html">Fflow</a>]</td>
+<td><div class="info">
+<code class="code">make ~close ~input ~output ()</code> is a flow using <code class="code">input</code> to refill
+    its internal input buffer when needed and <code class="code">output</code> to refill its
+    external output buffer.
+</div>
+</td></tr>
+<tr><td><a href="Mirage_flow_stats.html#VALmib">mib</a> [<a href="Mirage_flow_stats.html">Mirage_flow_stats</a>]</td>
+<td></td></tr>
+<tr><td align="left"><br>O</td></tr>
+<tr><td><a href="Lwt_io_flow.Make.html#VALoc">oc</a> [<a href="Lwt_io_flow.Make.html">Lwt_io_flow.Make</a>]</td>
+<td><div class="info">
+Build an <code class="code">Lwt_io</code> output channel from a mirage flow.
+</div>
+</td></tr>
+<tr><td><a href="Fflow.html#VALoutput_cstruct">output_cstruct</a> [<a href="Fflow.html">Fflow</a>]</td>
+<td><div class="info">
+Same as <a href="Fflow.html#VALoutput_string"><code class="code">Fflow.output_string</code></a> buf for <code class="code">Cstruct.t</code> buffers.
+</div>
+</td></tr>
+<tr><td><a href="Fflow.html#VALoutput_cstructs">output_cstructs</a> [<a href="Fflow.html">Fflow</a>]</td>
+<td><div class="info">
+Same as <a href="Fflow.html#VALoutput_strings"><code class="code">Fflow.output_strings</code></a> but for <code class="code">Cstruct.t</code> buffers.
+</div>
+</td></tr>
+<tr><td><a href="Fflow.html#VALoutput_string">output_string</a> [<a href="Fflow.html">Fflow</a>]</td>
+<td><div class="info">
+<code class="code">output_string buf</code> is the refill function writing its outputs in
+    the buffer <code class="code">buf</code>.
+</div>
+</td></tr>
+<tr><td><a href="Fflow.html#VALoutput_strings">output_strings</a> [<a href="Fflow.html">Fflow</a>]</td>
+<td><div class="info">
+<code class="code">output_strings buf</code> is the refill function writing its outputs in
+    the list of buffers <code class="code">buf</code>.
+</div>
+</td></tr>
+<tr><td align="left"><br>P</td></tr>
+<tr><td><a href="Fflow.html#VALpp_error">pp_error</a> [<a href="Fflow.html">Fflow</a>]</td>
+<td><div class="info">
+Pretty-print errors.
+</div>
+</td></tr>
+<tr><td><a href="Mirage_flow.html#VALproxy">proxy</a> [<a href="Mirage_flow.html">Mirage_flow</a>]</td>
+<td><div class="info">
+<code class="code">proxy (module Clock) (module A) a (module B) b ()</code> proxies data between
+    <code class="code">a</code> and <code class="code">b</code> until both sides close.
+</div>
+</td></tr>
+<tr><td><a href="Mirage_flow_proxy.html#VALproxy">proxy</a> [<a href="Mirage_flow_proxy.html">Mirage_flow_proxy</a>]</td>
+<td></td></tr>
+<tr><td align="left"><br>S</td></tr>
+<tr><td><a href="Mirage_flow_s.SHUTDOWNABLE.html#VALshutdown_read">shutdown_read</a> [<a href="Mirage_flow_s.SHUTDOWNABLE.html">Mirage_flow_s.SHUTDOWNABLE</a>]</td>
+<td><div class="info">
+Close the <code class="code">read</code> direction of the flow, such that future calls to <code class="code">write</code>
+      by the peer will return <code class="code">`Eof</code>
+</div>
+</td></tr>
+<tr><td><a href="Mirage_flow_s.SHUTDOWNABLE.html#VALshutdown_write">shutdown_write</a> [<a href="Mirage_flow_s.SHUTDOWNABLE.html">Mirage_flow_s.SHUTDOWNABLE</a>]</td>
+<td><div class="info">
+Close the <code class="code">write</code> direction of the flow, flushing any buffered data and
+      causing future calls to <code class="code">read</code> by the peer to return <code class="code">`Eof</code>.
+</div>
+</td></tr>
+<tr><td><a href="Mirage_flow_copy.html#VALstart">start</a> [<a href="Mirage_flow_copy.html">Mirage_flow_copy</a>]</td>
+<td></td></tr>
+<tr><td><a href="Mirage_flow_copy.html#VALstats">stats</a> [<a href="Mirage_flow_copy.html">Mirage_flow_copy</a>]</td>
+<td></td></tr>
+<tr><td><a href="Fflow.html#VALstring">string</a> [<a href="Fflow.html">Fflow</a>]</td>
+<td><div class="info">
+The flow built using <a href="Fflow.html#VALinput_string"><code class="code">Fflow.input_string</code></a> and <a href="Fflow.html#VALoutput_string"><code class="code">Fflow.output_string</code></a>.
+</div>
+</td></tr>
+<tr><td><a href="Fflow.html#VALstrings">strings</a> [<a href="Fflow.html">Fflow</a>]</td>
+<td><div class="info">
+The flow built using <a href="Fflow.html#VALinput_strings"><code class="code">Fflow.input_strings</code></a> and <a href="Fflow.html#VALoutput_strings"><code class="code">Fflow.output_strings</code></a>.
+</div>
+</td></tr>
+<tr><td><a href="Mirage_flow_stats.html#VALsuffix">suffix</a> [<a href="Mirage_flow_stats.html">Mirage_flow_stats</a>]</td>
+<td></td></tr>
+<tr><td align="left"><br>T</td></tr>
+<tr><td><a href="Mirage_flow_stats.html#VALtib">tib</a> [<a href="Mirage_flow_stats.html">Mirage_flow_stats</a>]</td>
+<td></td></tr>
+<tr><td><a href="Mirage_flow.CopyStats.html#VALto_string">to_string</a> [<a href="Mirage_flow.CopyStats.html">Mirage_flow.CopyStats</a>]</td>
+<td></td></tr>
+<tr><td><a href="Mirage_flow_stats.html#VALto_string">to_string</a> [<a href="Mirage_flow_stats.html">Mirage_flow_stats</a>]</td>
+<td></td></tr>
+<tr><td align="left"><br>W</td></tr>
+<tr><td><a href="Mirage_flow_copy.html#VALwait">wait</a> [<a href="Mirage_flow_copy.html">Mirage_flow_copy</a>]</td>
+<td></td></tr>
+</table>
+</body>
+</html>
